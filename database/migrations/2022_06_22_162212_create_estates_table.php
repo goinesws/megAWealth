@@ -14,9 +14,10 @@ class CreateEstatesTable extends Migration
     public function up()
     {
         Schema::create('estates', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('property_id')->primary();
             $table->string('sales_type');
             $table->string('building_type');
+            $table->string('status');
             $table->integer('price');
             $table->string('location');
             $table->string('image_link');
