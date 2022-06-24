@@ -18,9 +18,10 @@ class CreateCartsTable extends Migration
             $table->uuid('user_id');
             $table->uuid('estate_id');
             $table->timestamps();
+            $table->primary(['user_id', 'estate_id']);
 
             $table->foreign('user_id')->references('user_id')->on('users');
-            $table->foreign('estate_id')->references('property_id')->on('estates');
+            $table->foreign('estate_id')->references('estate_id')->on('estates');
         });
     }
 
