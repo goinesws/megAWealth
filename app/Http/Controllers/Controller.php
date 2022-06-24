@@ -11,34 +11,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function home()
-    {
-        return view('home');
-    }
-
-    public function search()
-    {
-
-    }
-
-    public function about()
-    {
-        return view('aboutUs');
-    }
-
-    public function buy()
-    {
-
-    }
-
-    public function rent()
-    {
-
-    }
-
-    public function cart()
-    {
-
+    public function register(){
+        return view('register');
     }
 
 }

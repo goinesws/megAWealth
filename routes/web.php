@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\UserController;
+use App\Http\Controllers\Controller;
 
 
 
@@ -22,4 +22,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/register', [UserController::class, 'index_register']);
+Route::get('/register', [Controller::class, 'register']);
