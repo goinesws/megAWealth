@@ -29,8 +29,18 @@ Route::post('/register', [UserController::class, 'register'])->name('register_fo
 Route::get('/login', [UserController::class, 'index_login'])->name('index_login');
 Route::post('/login', [UserController::class, 'login'])->name('login_form');
 
-Route::get('/a', function () {
-    return view('navbar.adminNavbar');
+
+
+
+Route::middleware(['member'])->group(function () {
+
 });
 
+Route::middleware(['guest_member'])->group(function () {
+
+});
+
+Route::middleware(['admin'])->group(function () {
+
+});
 

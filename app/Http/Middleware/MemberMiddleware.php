@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MemberMiddleware
 {
@@ -16,6 +17,11 @@ class MemberMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        if(!Auth::check()){
+            return redirect()->route('login_page');
+        } else if(Auth::user()->role !== 'member'){
+            return abort(403);
+        }
         return $next($request);
     }
 }
