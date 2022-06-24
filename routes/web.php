@@ -18,9 +18,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Controller::class, 'homepage']);
 
 
 Route::get('/register', [UserController::class, 'index_register']);
