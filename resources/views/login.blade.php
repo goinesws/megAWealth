@@ -33,9 +33,9 @@
         </div>
 
         <div class="navbar-items" style="padding: 10px; margin-top: 7px;">
-            <a href="#">Home</a>
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a href="/home">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
         </div>
     </div>
 
