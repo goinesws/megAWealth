@@ -52,4 +52,5 @@ Route::get('/rent', [Controller::class, 'rent']);
 Route::get('/addcart', [CartController::class, 'addcart']);
 
 
+// Route::get('/addcart', [CartController::class, 'addcart']);
 
