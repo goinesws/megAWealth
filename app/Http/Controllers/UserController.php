@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -13,10 +16,32 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function register(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = new User();
+
+        $user->user_id = Str::uuid();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = 'member';
+        $user->save();
+
+        return redirect()->route('index_login');
+    }
 
     public function index_register()
     {
         return view('register');
     }
 
+    public function index_login()
+    {
+        return view('login');
+    }
 }
