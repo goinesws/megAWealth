@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -43,5 +44,23 @@ class UserController extends Controller
     public function index_login()
     {
         return view('login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ]);
+
+
+        if(Auth::attempt($credentials)){
+            Cookie::queue('LoginCookie', $request->input('email'), 5);
+            Cookie::queue('PasswordCookie', $request->input('password'), 5);
+            return redirect('/home');
+        }
+        else{
+            return redirect()->back()->withErrors(['creds' => 'Invalid credentials']);
+        }
     }
 }
