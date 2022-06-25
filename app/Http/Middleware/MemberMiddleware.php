@@ -18,7 +18,7 @@ class MemberMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(!Auth::check()){
-            return redirect()->route('login_page');
+            return redirect()->route('index_login');
         } else if(Auth::user()->role !== 'member'){
             return abort(403);
         }

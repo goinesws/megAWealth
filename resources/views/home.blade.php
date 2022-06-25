@@ -23,6 +23,21 @@
 </head>
 
 <body>
+
+
+    @auth
+        @if(Gate::allows('isAdmin'))
+            @include('navbar.adminNavbar')
+        @elseif (Gate::allows('isMember'))
+            @include('navbar.memberNavbar')
+        @endif
+    @endauth
+    @guest
+        @include('navbar.guestNavbar')
+    @endguest
+
+
+
     <div class="card bg-dark text-white">
         <img src="{{ url('storage/assets/thumbnail.jpg') }}" class="card-img" alt="..." height="400">
         <div class="card-img-overlay">

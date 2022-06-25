@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\GuestMemberMiddleware;
+use App\Http\Middleware\MemberMiddleware;
 
 
 
@@ -18,7 +21,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [Controller::class, 'homepage']);
+Route::get('/home', [Controller::class, 'homepage'])->name('homepage');
 
 
 Route::get('/register', [UserController::class, 'index_register']);
@@ -26,6 +29,8 @@ Route::post('/register', [UserController::class, 'register'])->name('register_fo
 
 Route::get('/login', [UserController::class, 'index_login'])->name('index_login');
 Route::post('/login', [UserController::class, 'login'])->name('login_form');
+
+
 
 
 
