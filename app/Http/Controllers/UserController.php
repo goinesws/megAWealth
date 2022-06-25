@@ -65,4 +65,10 @@ class UserController extends Controller
             return redirect()->back()->withErrors(['creds' => 'Invalid credentials']);
         }
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('index_login');
+    }
 }
