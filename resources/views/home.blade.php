@@ -24,7 +24,7 @@
 
 <body>
 
-
+    {{-- {{ dd(Auth::user()->name) }} --}}
     @auth
         @if(Gate::allows('isAdmin'))
             @include('navbar.adminNavbar')
