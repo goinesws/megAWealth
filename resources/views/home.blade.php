@@ -17,7 +17,7 @@
     <style>
         .image-container{
             position: relative;
-            width: 80%;
+            width: auto;
         }
 
         .image-effect{
@@ -82,8 +82,8 @@
             </form>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 m-4 p-4" style="background-color: burlywood">
-        <div class="col">
+    <div class="row row-cols-1 row-cols-md-3 g-4 p-4">
+        <div class="col p-5">
           <div class="card h-70 image-container">
             <img src="{{ url('storage/assets/rent-image.jpg') }}" class="img-thumbnail image-effect" alt="..." style="image-">
             <div class="make-middle">
@@ -91,7 +91,7 @@
             </div>
         </div>
         </div>
-        <div class="col">
+        <div class="col p-5">
           <div class="card h-70 image-container">
             <img src="{{ url('storage/assets/buy-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
             <div class="make-middle">
@@ -99,7 +99,7 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col p-5">
             <div class="card h-70 image-container">
                 <img src="{{ url('storage/assets/aboutus-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
                 <div class="make-middle">
