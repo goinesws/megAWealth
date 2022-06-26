@@ -15,10 +15,44 @@
     <title>Home</title>
 
     <style>
-        .img-hover-effect:hover{
-            opacity: 0.5;
-
+        .image-container{
+            position: relative;
+            width: 80%;
         }
+
+        .image-effect{
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .make-middle{
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .texts-effect{
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+
+        .image-container:hover .image-effect{
+            opacity: 0.3;
+        }
+
+        .image-container:hover .make-middle{
+            opacity: 1;
+        }
+
     </style>
 </head>
 
@@ -48,34 +82,28 @@
             </form>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 m-4 p-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-4 p-4" style="background-color: burlywood">
         <div class="col">
-          <div class="card h-100">
-            <img src="{{ url('storage/assets/rent-image.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-img-overlay">
-                <div class="d-grid gap-2">
-                    <a href="/" class="btn btn-outline-dark" type="button">RENT</a>
-                </div>
+          <div class="card h-70 image-container">
+            <img src="{{ url('storage/assets/rent-image.jpg') }}" class="img-thumbnail image-effect" alt="..." style="image-">
+            <div class="make-middle">
+                <a href="/" class="btn btn-outline-dark texts-effect" type="button">RENT</a>
             </div>
         </div>
         </div>
         <div class="col">
-          <div class="card h-100">
-            <img src="{{ url('storage/assets/buy-image.jpg') }}" class="card-img-top" alt="...">
-            <div class="card-img-overlay">
-                <div class="d-grid gap-2">
-                    <a href="/" class="btn btn-outline-dark" type="button">BUY</a>
-                </div>
+          <div class="card h-70 image-container">
+            <img src="{{ url('storage/assets/buy-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
+            <div class="make-middle">
+                <a href="/" class="btn btn-outline-dark texts-effect" type="button">BUY</a>
             </div>
           </div>
         </div>
         <div class="col">
-            <div class="card h-100">
-              <img src="{{ url('storage/assets/aboutus-image.jpg') }}" class="card-img-top img-hover-effect" alt="...">
-              <div class="card-img-overlay">
-                    <div class="d-grid gap-2">
-                        <a href="/" class="btn btn-outline-dark" type="button">ABOUT US</a>
-                    </div>
+            <div class="card h-70 image-container">
+                <img src="{{ url('storage/assets/aboutus-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
+                <div class="make-middle">
+                    <a href="/" class="btn btn-outline-dark texts-effect" type="button">ABOUT US</a>
                 </div>
             </div>
         </div>
