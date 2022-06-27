@@ -14,6 +14,35 @@
     <title></title>
 </head>
 <body>
+    @include('navbar.adminNavbar')
+
+    <div style="padding-right: 5%; padding-left: 5%; padding-top:1%;">
+        <a class="btn btn-primary" href="#" role="button"> + Add Office</a>
+
+        <div style="display: flex; justify-content: center;">
+            @foreach ($office as $off)
+                <div class="card" style="width: 16rem; margin: 10px;">
+                    <img src="{{ url('storage/office/'.$off->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
+                    <div class="card-body">
+                    <h5 class="card-title">{{$off->name}}</h5>
+                    <span class="card-text">{{$off->address}}</span><br>
+                    <span class="card-text">{{$off->contact_name}}</span><br>
+                    <span class="card-text">{{$off->phone_number}}</span></br>
+
+
+                    <a href="#" class="btn btn-primary">Update</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            @endforeach
+
+        </div>
+
+        <div class="d-flex" style="justify-content: center">
+            {{ $office->links() }}
+        </div>
+    </div>
+
 
 </body>
 </html>

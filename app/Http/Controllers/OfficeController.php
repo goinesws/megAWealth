@@ -19,6 +19,15 @@ class OfficeController extends Controller
         ]);
     }
 
+    public function index()
+    {
+        return view('admin.manageCompany',
+        [
+            'office' => Office::paginate(4)
+        ]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

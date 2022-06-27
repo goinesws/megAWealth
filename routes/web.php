@@ -48,6 +48,6 @@ Route::middleware(['guest_member'])->group(function () {
 });
 
 Route::middleware(['admin'])->group(function () {
-
+    Route::get('/manageCompany', [OfficeController::class, 'index'])->name('manageCompany');
 });
 
