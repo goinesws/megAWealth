@@ -28,7 +28,7 @@
     <div class="container-fluid">
 
         <div class="card bg-dark text-white">
-            <img src="{{ url('storage/assets/thumbnail.jpg') }}" class="card-img" alt="..." height="400">
+            <img src="{{ url('storage/assets/aboutUs-thumbnail.jpg') }}" class="card-img" alt="..." height="400">
             <div class="card-img-overlay">
                 <h5 class="fs-1 text-center" style="margin-top: 3rem; margin-bottom: 3rem;">About Our Company</h5>
                 <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque sunt a ipsum provident ipsam, quos dignissimos fugit corrupti, animi esse, nesciunt exercitationem nisi voluptatum quasi saepe maiores quis! Alias, magni?Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis tenetur ipsum libero placeat debitis, esse quod excepturi odio aut accusamus aperiam ipsa aspernatur! Maxime recusandae eum eaque tenetur vitae officiis?</p>
