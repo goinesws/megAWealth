@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OfficeController;
 
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\GuestMemberMiddleware;
@@ -32,6 +33,7 @@ Route::post('/login', [UserController::class, 'login'])->name('login_form');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+Route::get('/aboutUs', [OfficeController::class, 'index_aboutUs'])->name('aboutUs');
 
 
 

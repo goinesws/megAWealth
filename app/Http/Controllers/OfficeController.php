@@ -12,9 +12,11 @@ class OfficeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index_aboutUs()
     {
-        //
+        return view('guest-and-member/aboutUs', [
+            'office' => Office::paginate(5)
+        ]);
     }
 
     /**
