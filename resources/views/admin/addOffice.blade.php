@@ -48,7 +48,7 @@
               </div>
             @endif
 
-            <button type="submit" class="btn btn-primary position-absolute start-50">Register</button>
+            <button type="submit" class="btn btn-primary position-absolute">Insert</button>
           </form>
 
 

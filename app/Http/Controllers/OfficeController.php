@@ -36,8 +36,6 @@ class OfficeController extends Controller
 
     public function addOffice(Request $request)
     {
-
-        //add validation
         $request->validate([
             'name' => 'required',
             'address' => 'required',

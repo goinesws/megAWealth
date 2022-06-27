@@ -35,7 +35,7 @@
                     <div class="card-body">
                     <h5 class="card-title">${{$estate->price}}</h5>
                     <span class="card-text">{{$estate->location}}</span><br>
-                    <span class="btn btn-info btn-sm text-light" style="margin-top:10px;">{{$estate->building_type}}</span><br>
+                    <span class="btn btn-info btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->building_type}}</span><br>
 
 
                     <div style="display:flex; justify-content: space-around; margin-top: 10px;">

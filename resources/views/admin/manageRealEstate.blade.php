@@ -14,6 +14,44 @@
     <title></title>
 </head>
 <body>
+    @include('navbar.adminNavbar')
+
+    <div style="padding-right: 5%; padding-left: 5%; padding-top:1%;">
+        <a class="btn btn-primary" href="/addRealEstate" role="button"> + Add Real Estate</a>
+
+        <div style="display: flex; justify-content: center;">
+            @foreach ($estates as $estate)
+            <div class="shadow card" style="width: 16rem; margin: 10px;">
+                @if($estate->building_type == 'Apartment')
+                    <img src="{{ url('storage/apartment/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
+                @elseif($estate->building_type == 'House')
+                    <img src="{{ url('storage/house/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
+                @endif
+                <div class="card-body">
+                <h5 class="card-title">${{$estate->price}}</h5>
+                <span class="card-text">{{$estate->location}}</span><br>
+                <span class="btn btn-info btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->building_type}}</span>
+                @if ($estate->status == 'Open'||$estate->status == 'Cart')
+                    <span class="btn btn-primary btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->sales_type}}</span>
+                @endif
+                <span class="btn btn-success btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->status}}</span><br>
+
+
+                <div style="display:flex; justify-content: space-around; margin-top: 10px;">
+                    <a href="#" class="btn btn-primary">Update</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            </div>
+            @endforeach
+
+        </div>
+
+        <div class="d-flex" style="justify-content: center">
+            {{ $estates->links() }}
+        </div>
+    </div>
+
 
 </body>
 </html>

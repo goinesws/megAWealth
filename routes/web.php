@@ -65,7 +65,11 @@ Route::middleware(['admin'])->group(function () {
 
     Route::get('/updateOffice/{id}', [OfficeController::class, 'index_updateOffice'])->name('index_updateOffice');
     Route::post('/updateOffice/{id}', [OfficeController::class, 'updateOffice'])->name('updateOffice_form');
-
     Route::get('/deleteOffice/{id}', [OfficeController::class, 'deleteOffice'])->name('deleteOffice');
+
+    Route::get('/manageRealEstates', [EstateController::class, 'index'])->name('manageEstate');
+
+    Route::get('/addRealEstate', [EstateController::class, 'index_addEstate'])->name('index_addEstate');
+    Route::post('/addRealEstate', [EstateController::class, 'addEstate'])->name('addEstate_form');
 });
 
