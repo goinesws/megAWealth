@@ -27,6 +27,36 @@ class OfficeController extends Controller
         ]);
     }
 
+    public function index_addOffice()
+    {
+        return view('admin.addOffice');
+    }
+
+    public function addOffice(Request $request)
+    {
+
+        //add validation
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'contact_name' => 'required',
+            'phone_number' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10000',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('storage/office'), $imageName);
+
+        $office = new Office();
+        $office->name = $request->name;
+        $office->address = $request->address;
+        $office->contact_name = $request->contact_name;
+        $office->phone_number = $request->phone_number;
+        $office->image_link = $imageName;
+        $office->save();
+        return redirect()->route('manageCompany');
+    }
+
 
     /**
      * Show the form for creating a new resource.

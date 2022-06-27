@@ -17,11 +17,11 @@
     @include('navbar.adminNavbar')
 
     <div style="padding-right: 5%; padding-left: 5%; padding-top:1%;">
-        <a class="btn btn-primary" href="#" role="button"> + Add Office</a>
+        <a class="btn btn-primary" href="/addOffice" role="button"> + Add Office</a>
 
         <div style="display: flex; justify-content: center;">
             @foreach ($office as $off)
-                <div class="card" style="width: 16rem; margin: 10px;">
+                <div class="shadow card" style="width: 16rem; margin: 10px;">
                     <img src="{{ url('storage/office/'.$off->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
                     <div class="card-body">
                     <h5 class="card-title">{{$off->name}}</h5>

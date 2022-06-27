@@ -49,5 +49,8 @@ Route::middleware(['guest_member'])->group(function () {
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/manageCompany', [OfficeController::class, 'index'])->name('manageCompany');
+
+    Route::get('/addOffice', [OfficeController::class, 'index_addOffice'])->name('index_addOffice');
+    Route::post('/addOffice', [OfficeController::class, 'addOffice'])->name('addOffice_form');
 });
 
