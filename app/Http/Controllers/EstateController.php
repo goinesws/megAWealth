@@ -7,79 +7,10 @@ use Illuminate\Http\Request;
 
 class EstateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function buy()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Estate  $estate
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Estate $estate)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Estate  $estate
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Estate $estate)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Estate  $estate
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Estate $estate)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Estate  $estate
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Estate $estate)
-    {
-        //
+        return view('guest-and-member.buy', [
+            'estates' => Estate::where('sales_type', 'Sale')->paginate(4)
+        ]);
     }
 }

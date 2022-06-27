@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\EstateController;
 
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\GuestMemberMiddleware;
@@ -22,6 +23,11 @@ use App\Http\Middleware\MemberMiddleware;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/home');
+});
+
+
 Route::get('/home', [Controller::class, 'homepage'])->name('homepage');
 
 
@@ -33,7 +39,6 @@ Route::post('/login', [UserController::class, 'login'])->name('login_form');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('/aboutUs', [OfficeController::class, 'index_aboutUs'])->name('aboutUs');
 
 
 
@@ -44,6 +49,9 @@ Route::middleware(['member'])->group(function () {
 });
 
 Route::middleware(['guest_member'])->group(function () {
+    Route::get('/aboutUs', [OfficeController::class, 'index_aboutUs'])->name('aboutUs');
+    Route::get('/buy', [EstateController::class, 'buy'])->name('buy');
+
 
 });
 
