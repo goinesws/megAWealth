@@ -12,6 +12,11 @@ class Estate extends Model
     use HasFactory;
 
     protected $primaryKey = 'estate_id';
+
+    protected $casts = [
+        'estate_id' => 'string'
+    ];
+
     public function cart()
     {
         return $this->hasMany(Cart::class);

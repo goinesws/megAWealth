@@ -67,7 +67,6 @@ class OfficeController extends Controller
 
     public function updateOffice(Request $request, $id)
     {
-        //validate
         $request->validate([
             'name' => 'required',
             'address' => 'required',

@@ -27,11 +27,7 @@
         <div style="display: flex; justify-content: center;">
             @foreach ($estates as $estate)
                 <div class="shadow card" style="width: 16rem; margin: 10px;">
-                    @if($estate->building_type == 'Apartment')
-                        <img src="{{ url('storage/apartment/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
-                    @elseif($estate->building_type == 'House')
-                        <img src="{{ url('storage/house/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
-                    @endif
+                    <img src="{{ url('storage/estate/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
                     <div class="card-body">
                     <h5 class="card-title">${{$estate->price}}</h5>
                     <span class="card-text">{{$estate->location}}</span><br>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Estate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+
 
 
 class EstateController extends Controller
@@ -46,11 +48,8 @@ class EstateController extends Controller
         ]);
 
         $imageName = time().'.'.$request->image->extension();
-        if($request->building_type == 1){
-            $request->image->move(public_path('storage/apartment'), $imageName);}
-        else if($request->building_type == 2){
-            $request->image->move(public_path('storage/house'), $imageName);
-        }
+        $request->image->move(public_path('storage/estate'), $imageName);
+
 
         $estate = new Estate();
         $estate->estate_id = Str::uuid();
@@ -74,5 +73,54 @@ class EstateController extends Controller
         $estate->image_link = $imageName;
         $estate->save();
         return redirect()->route('manageEstate');
+    }
+
+    public function index_updateEstate($id)
+    {
+        $estate = Estate::where('estate_id', $id)->first();
+        return view('admin.updateRealEstate', [
+            'estate' => $estate
+        ]);
+    }
+
+
+    public function updateEstate(Request $request, $id)
+    {
+        $request->validate([
+            'sales_type' => 'required|not_in:0',
+            'building_type' => 'required|not_in:0',
+            'price' => 'required',
+            'location' => 'required',
+        ]);
+
+        $estate = Estate::where('estate_id', $id)->first();
+        if($request->building_type == 1){
+            $estate->building_type = 'Apartment';
+        }
+        else if($request->building_type == 2){
+            $estate->building_type = 'House';
+        }
+
+        if($request->sales_type == 1){
+            $estate->sales_type = 'Sale';
+        }
+        else if($request->sales_type == 2){
+            $estate->sales_type = 'Rent';
+        }
+
+        $estate->price = $request->price;
+        $estate->location = $request->location;
+        $estate->update();
+        return redirect()->route('manageEstate')->with('success', 'Estate updated successfully');
+    }
+
+    public function deleteEstate($id)
+    {
+        $estate = Estate::where('estate_id', $id)->first();
+        $destinationPath = 'storage/estate/';
+        File::delete($destinationPath.'/'.$estate->image_link);
+        $estate->delete();
+        return redirect()->route('manageEstate')->with('success', 'Estate deleted successfully');
+
     }
 }
