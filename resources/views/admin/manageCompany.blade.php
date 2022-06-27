@@ -30,9 +30,12 @@
                     <span class="card-text">{{$off->phone_number}}</span></br>
 
 
-                    <a href="/updateOffice/{{ $off->office_id }}" class="btn btn-primary">Update</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <div style="display:flex; justify-content: space-around; margin-top: 10px;">
+                        <a href="/updateOffice/{{ $off->office_id }}" class="btn btn-primary">Update</a>
+                        <a href="/deleteOffice/{{ $off->office_id }}" class="btn btn-danger">Delete</a>
+
                     </div>
+                </div>
                 </div>
             @endforeach
 

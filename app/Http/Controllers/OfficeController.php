@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Office;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class OfficeController extends Controller
 {
@@ -75,7 +77,6 @@ class OfficeController extends Controller
             'phone_number' => 'required',
         ]);
 
-        //oofice find id
         $office = Office::where('office_id', $id)->first();
         $office->name = $request->name;
         $office->address = $request->address;
@@ -84,6 +85,15 @@ class OfficeController extends Controller
         $office->update();
 
         return redirect()->route('manageCompany')->with('success', 'Office updated successfully');
+    }
+
+    public function deleteOffice($id)
+    {
+        $office = Office::where('office_id', $id)->first();
+        $destinationPath = 'storage/office/';
+        File::delete($destinationPath.'/'.$office->image_link);
+        $office->delete();
+        return redirect('/manageCompany')->with('success', 'Office deleted successfully');
     }
 
     /**

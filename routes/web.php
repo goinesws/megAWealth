@@ -55,5 +55,7 @@ Route::middleware(['admin'])->group(function () {
 
     Route::get('/updateOffice/{id}', [OfficeController::class, 'index_updateOffice'])->name('index_updateOffice');
     Route::post('/updateOffice/{id}', [OfficeController::class, 'updateOffice'])->name('updateOffice_form');
+
+    Route::get('/deleteOffice/{id}', [OfficeController::class, 'deleteOffice'])->name('deleteOffice');
 });
 
