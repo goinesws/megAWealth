@@ -57,6 +57,34 @@ class OfficeController extends Controller
         return redirect()->route('manageCompany');
     }
 
+    public function index_updateOffice($id)
+    {
+        $office = Office::where('office_id', $id)->first();
+        return view('admin.updateOffice', [
+            'office' => $office
+        ]);
+    }
+
+    public function updateOffice(Request $request, $id)
+    {
+        //validate
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'contact_name' => 'required',
+            'phone_number' => 'required',
+        ]);
+
+        //oofice find id
+        $office = Office::where('office_id', $id)->first();
+        $office->name = $request->name;
+        $office->address = $request->address;
+        $office->contact_name = $request->contact_name;
+        $office->phone_number = $request->phone_number;
+        $office->update();
+
+        return redirect()->route('manageCompany')->with('success', 'Office updated successfully');
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -52,5 +52,8 @@ Route::middleware(['admin'])->group(function () {
 
     Route::get('/addOffice', [OfficeController::class, 'index_addOffice'])->name('index_addOffice');
     Route::post('/addOffice', [OfficeController::class, 'addOffice'])->name('addOffice_form');
+
+    Route::get('/updateOffice/{id}', [OfficeController::class, 'index_updateOffice'])->name('index_updateOffice');
+    Route::post('/updateOffice/{id}', [OfficeController::class, 'updateOffice'])->name('updateOffice_form');
 });
 
