@@ -51,6 +51,8 @@ Route::middleware(['member'])->group(function () {
 Route::middleware(['guest_member'])->group(function () {
     Route::get('/aboutUs', [OfficeController::class, 'index_aboutUs'])->name('aboutUs');
     Route::get('/buy', [EstateController::class, 'buy'])->name('buy');
+    Route::get('/rent', [EstateController::class, 'rent'])->name('rent');
+
 
 
 });

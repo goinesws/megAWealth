@@ -14,6 +14,44 @@
     <title></title>
 </head>
 <body>
+    @auth
+        @include('navbar.memberNavbar')
+    @endauth
+    @guest
+        @include('navbar.guestNavbar')
+    @endguest
+
+    <div style="padding-right: 5%; padding-left: 5%; padding-top:1%;">
+        <h4>Showing Real Estates for Rent</h4>
+
+        <div style="display: flex; justify-content: center;">
+            @foreach ($estates as $estate)
+                <div class="shadow card" style="width: 16rem; margin: 10px;">
+                    @if($estate->building_type == 'Apartment')
+                        <img src="{{ url('storage/apartment/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
+                    @elseif($estate->building_type == 'House')
+                        <img src="{{ url('storage/house/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
+                    @endif
+                    <div class="card-body">
+                    <h5 class="card-title">${{$estate->price}}</h5>
+                    <span class="card-text">{{$estate->location}}</span><br>
+                    <span class="btn btn-info btn-sm text-light" style="margin-top:10px;">{{$estate->building_type}}</span><br>
+
+
+                    <div style="display:flex; justify-content: space-around; margin-top: 10px;">
+                        <a href="#" class="btn btn-primary">Buy</a>
+
+                    </div>
+                </div>
+                </div>
+            @endforeach
+
+        </div>
+
+        <div class="d-flex" style="justify-content: center">
+            {{ $estates->links() }}
+        </div>
+    </div>
 
 </body>
 </html>

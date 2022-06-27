@@ -13,4 +13,11 @@ class EstateController extends Controller
             'estates' => Estate::where('sales_type', 'Sale')->paginate(4)
         ]);
     }
+
+    public function rent()
+    {
+        return view('guest-and-member.rent', [
+            'estates' => Estate::where('sales_type', 'Rent')->paginate(4)
+        ]);
+    }
 }
