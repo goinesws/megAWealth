@@ -123,7 +123,7 @@ class EstateController extends Controller
         $estate->price = $request->price;
         $estate->location = $request->location;
         $estate->update();
-        return redirect()->route('manageEstate')->with('success', 'Estate updated successfully');
+        return redirect()->route('manageEstate')->with('message', 'Estate updated successfully');
     }
 
     public function deleteEstate($id)
@@ -132,7 +132,7 @@ class EstateController extends Controller
         $destinationPath = 'storage/estate/';
         File::delete($destinationPath.'/'.$estate->image_link);
         $estate->delete();
-        return redirect()->route('manageEstate')->with('success', 'Estate deleted successfully');
+        return redirect()->route('manageEstate')->with('message', 'Estate deleted successfully');
 
     }
 }

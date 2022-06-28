@@ -81,7 +81,7 @@ class OfficeController extends Controller
         $office->phone_number = $request->phone_number;
         $office->update();
 
-        return redirect()->route('manageCompany')->with('success', 'Office updated successfully');
+        return redirect()->route('manageCompany')->with('message', 'Office updated successfully');
     }
 
     public function deleteOffice($id)
@@ -90,7 +90,7 @@ class OfficeController extends Controller
         $destinationPath = 'storage/office/';
         File::delete($destinationPath.'/'.$office->image_link);
         $office->delete();
-        return redirect('/manageCompany')->with('success', 'Office deleted successfully');
+        return redirect('/manageCompany')->with('message', 'Office deleted successfully');
     }
 
     /**

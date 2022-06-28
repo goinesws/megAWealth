@@ -16,6 +16,12 @@
 <body>
     @include('navbar.adminNavbar')
 
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+
     <div style="padding-right: 5%; padding-left: 5%; padding-top:1%;">
         <a class="btn btn-primary" href="/addRealEstate" role="button"> + Add Real Estate</a>
 
