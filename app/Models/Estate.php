@@ -19,6 +19,6 @@ class Estate extends Model
 
     public function cart()
     {
-        return $this->hasMany(Cart::class);
+        return $this->hasOne(Cart::class, 'estate_id', 'estate_id');
     }
 }

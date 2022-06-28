@@ -41,9 +41,16 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'user_id' => 'string'
     ];
 
     protected $primaryKey = 'user_id';
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
     public function cart()
     {

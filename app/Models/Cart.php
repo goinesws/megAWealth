@@ -13,11 +13,11 @@ class Cart extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
     public function estate()
     {
-        return $this->belongsTo(Estate::class);
+        return $this->belongsTo(Estate::class, 'estate_id', 'estate_id');
     }
 }

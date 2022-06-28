@@ -20,7 +20,11 @@
     @guest
         @include('navbar.guestNavbar')
     @endguest
-
+        @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+        @endif
     <div style="padding-right: 5%; padding-left: 5%; padding-top:1%;">
         <h4>Showing Real Estates for Rent</h4>
 
@@ -35,7 +39,7 @@
 
 
                     <div style="display:flex; justify-content: space-around; margin-top: 10px;">
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Rent</a>
 
                     </div>
                 </div>

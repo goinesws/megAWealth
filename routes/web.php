@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\EstateController;
+use App\Http\Controllers\CartController;
 
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\GuestMemberMiddleware;
@@ -45,7 +46,11 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 Route::middleware(['member'])->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart_index');
+    Route::get('/addCart/{id}', [CartController::class, 'addCart'])->name('addCart');
 
+    Route::get('/cancelCart/{id}', [CartController::class, 'cancelCart'])->name('cancelCart');
+    Route::get('/cartCheckout', [CartController::class, 'cartCheckout'])->name('cartCheckout');
 });
 
 Route::middleware(['guest_member'])->group(function () {
