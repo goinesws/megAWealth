@@ -27,7 +27,7 @@
 
         <div style="display: flex; justify-content: center;">
             @foreach ($estates as $estate)
-            <div class="shadow card" style="width: 16rem; margin: 10px;">
+            <div class="shadow card" style="width: 18rem; margin: 10px;">
                 <img src="{{ url('storage/estate/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
                 <div class="card-body">
                 <h5 class="card-title">${{$estate->price}}</h5>
@@ -39,9 +39,12 @@
                 <span class="btn btn-success btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->status}}</span><br>
 
 
-                <div style="display:flex; justify-content: space-around; margin-top: 10px;">
+                <div style="display:flex; justify-content: center; margin-top: 10px;">
                     <a href="/updateRealEstate/{{ $estate->estate_id }}" class="btn btn-primary">Update</a>
                     <a href="/deleteRealEstate/{{ $estate->estate_id }}" class="btn btn-danger">Delete</a>
+                    @if ($estate->status == 'Cart')
+                        <a href="#" class="btn btn-success">Finish</a>
+                    @endif
                 </div>
             </div>
             </div>

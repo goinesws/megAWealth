@@ -92,7 +92,7 @@
           <div class="card h-70 image-container">
             <img src="{{ url('storage/assets/rent-image.jpg') }}" class="img-thumbnail image-effect" alt="..." style="image-">
             <div class="make-middle">
-                <a href="/" class="btn btn-outline-dark texts-effect" type="button">RENT</a>
+                <a href="/rent" class="btn btn-outline-dark texts-effect" type="button">RENT</a>
             </div>
         </div>
         </div>
@@ -100,7 +100,7 @@
           <div class="card h-70 image-container">
             <img src="{{ url('storage/assets/buy-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
             <div class="make-middle">
-                <a href="/" class="btn btn-outline-dark texts-effect" type="button">BUY</a>
+                <a href="/buy" class="btn btn-outline-dark texts-effect" type="button">BUY</a>
             </div>
           </div>
         </div>
@@ -108,12 +108,12 @@
             <div class="card h-70 image-container">
                 <img src="{{ url('storage/assets/aboutus-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
                 <div class="make-middle">
-                    <a href="/" class="btn btn-outline-dark texts-effect" type="button">ABOUT US</a>
+                    <a href="/aboutUs" class="btn btn-outline-dark texts-effect" type="button">ABOUT US</a>
                 </div>
             </div>
         </div>
     </div>
-{{-- ngetest mau liat ada folder storage ga di github --}}
+
 </body>
 
 </html>

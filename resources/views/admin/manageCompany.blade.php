@@ -29,18 +29,18 @@
                 <div class="shadow card" style="width: 16rem; margin: 10px;">
                     <img src="{{ url('storage/office/'.$off->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
                     <div class="card-body">
-                    <h5 class="card-title">{{$off->name}}</h5>
-                    <span class="card-text">{{$off->address}}</span><br>
-                    <span class="card-text">{{$off->contact_name}}</span><br>
-                    <span class="card-text">{{$off->phone_number}}</span></br>
+                        <h5 class="card-title">{{$off->name}}</h5>
+                        <span class="card-text">{{$off->address}}</span><br><br>
+                        <span class="card-text">{{$off->contact_name}}</span><br>
+                        <span class="card-text">{{$off->phone_number}}</span>
 
 
-                    <div style="display:flex; justify-content: space-around; margin-top: 10px;">
-                        <a href="/updateOffice/{{ $off->office_id }}" class="btn btn-primary">Update</a>
-                        <a href="/deleteOffice/{{ $off->office_id }}" class="btn btn-danger">Delete</a>
+                        <div style="display:flex; justify-content: space-around; margin-top: 10px;">
+                            <a href="/updateOffice/{{ $off->office_id }}" class="btn btn-primary">Update</a>
+                            <a href="/deleteOffice/{{ $off->office_id }}" class="btn btn-danger">Delete</a>
 
+                        </div>
                     </div>
-                </div>
                 </div>
             @endforeach
 

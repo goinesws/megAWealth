@@ -31,23 +31,22 @@
             <img src="{{ url('storage/assets/aboutUs-thumbnail.jpg') }}" class="card-img" alt="..." height="400">
             <div class="card-img-overlay">
                 <h5 class="fs-1 text-center" style="margin-top: 3rem; margin-bottom: 3rem;">About Our Company</h5>
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque sunt a ipsum provident ipsam, quos dignissimos fugit corrupti, animi esse, nesciunt exercitationem nisi voluptatum quasi saepe maiores quis! Alias, magni?Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis tenetur ipsum libero placeat debitis, esse quod excepturi odio aut accusamus aperiam ipsa aspernatur! Maxime recusandae eum eaque tenetur vitae officiis?</p>
+                <p class="text-center">Our company was founded at 2008 by our founder Renanda. At that time, we started as law firm specializing in real estate and construction. In 2012, our company expanded our service to real estate with the included service of real estates lawyers. Today, our company have 5 offices throughout the states and is planning to build more </p>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-5 g-4">
-            @foreach($office as $off)
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="{{ url('storage/office/'.$off->image_link) }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{$off->name}}</h5>
-                            <span class="card-text">{{$off->address}}</span><br>
-                            <span class="card-text">{{$off->contact_name}}</span><br>
-                            <span class="card-text">{{$off->phone_number}}</span>
-                        </div>
+        <div style="display: flex; justify-content: center;">
+            @foreach ($office as $off)
+                <div class="shadow card" style="width: 16rem; margin: 10px;">
+                    <img src="{{ url('storage/office/'.$off->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$off->name}}</h5>
+                        <span class="card-text">{{$off->address}}</span><br><br>
+                        <span class="card-text">{{$off->contact_name}}</span><br>
+                        <span class="card-text">{{$off->phone_number}}</span>
                     </div>
                 </div>
-           @endforeach
+            @endforeach
+
         </div>
         <div class="d-flex" style="justify-content: center">
             {{ $office->links() }}
