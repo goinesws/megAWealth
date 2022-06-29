@@ -76,44 +76,44 @@
         </div>
     @endif
 
-
-    <div class="card bg-dark text-white">
-        <img src="{{ url('storage/assets/thumbnail.jpg') }}" class="card-img" alt="..." height="400">
-        <div class="card-img-overlay">
-            <h5 class="fs-1 text-center" style="margin-top: 3rem">Find Your Future Home</h5>
-            <form class="d-flex" style="margin-top: 7rem">
-                <input class="form-control me-2" type="search" placeholder="Enter a City, Property Type, Buy or Rent..." aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 p-4">
-        <div class="col p-5">
-          <div class="card h-70 image-container">
-            <img src="{{ url('storage/assets/rent-image.jpg') }}" class="img-thumbnail image-effect" alt="..." style="image-">
-            <div class="make-middle">
-                <a href="/rent" class="btn btn-outline-dark texts-effect" type="button">RENT</a>
+    <div class="container-fluid" style="padding-right: 7%; padding-left: 7%; padding-top:1%;">
+        <div class="card bg-dark text-white">
+            <img src="{{ url('storage/assets/thumbnail.jpg') }}" class="card-img" alt="..." height="400">
+            <div class="card-img-overlay">
+                <h5 class="fs-1 text-center" style="margin-top: 3rem">Find Your Future Home</h5>
+                <form class="d-flex" style="margin-top: 7rem">
+                    <input class="form-control me-2" type="search" placeholder="Enter a City, Property Type, Buy or Rent..." aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </div>
-        </div>
-        <div class="col p-5">
-          <div class="card h-70 image-container">
-            <img src="{{ url('storage/assets/buy-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
-            <div class="make-middle">
-                <a href="/buy" class="btn btn-outline-dark texts-effect" type="button">BUY</a>
-            </div>
-          </div>
-        </div>
-        <div class="col p-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4 p-4">
+            <div class="col p-5">
             <div class="card h-70 image-container">
-                <img src="{{ url('storage/assets/aboutus-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
+                <img src="{{ url('storage/assets/rent-image.jpg') }}" class="img-thumbnail image-effect" alt="..." style="image-">
                 <div class="make-middle">
-                    <a href="/aboutUs" class="btn btn-outline-dark texts-effect" type="button">ABOUT US</a>
+                    <a href="/rent" class="btn btn-outline-dark texts-effect" type="button">RENT</a>
+                </div>
+            </div>
+            </div>
+            <div class="col p-5">
+            <div class="card h-70 image-container">
+                <img src="{{ url('storage/assets/buy-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
+                <div class="make-middle">
+                    <a href="/buy" class="btn btn-outline-dark texts-effect" type="button">BUY</a>
+                </div>
+            </div>
+            </div>
+            <div class="col p-5">
+                <div class="card h-70 image-container">
+                    <img src="{{ url('storage/assets/aboutus-image.jpg') }}" class="img-thumbnail image-effect" alt="...">
+                    <div class="make-middle">
+                        <a href="/aboutUs" class="btn btn-outline-dark texts-effect" type="button">ABOUT US</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    <div>
 </body>
 
 </html>

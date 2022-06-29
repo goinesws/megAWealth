@@ -29,8 +29,8 @@
                 <div class="shadow card" style="width: 16rem; margin: 10px;">
                     <img src="{{ url('storage/office/'.$off->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
                     <div class="card-body">
-                        <h5 class="card-title">{{$off->name}}</h5>
-                        <span class="card-text">{{$off->address}}</span><br><br>
+                        <h5 class="card-title fs-6 fw-bold">{{$off->name}}</h5>
+                        <span class="card-text fs-6 fw-light">{{$off->address}}</span><br><br>
                         <span class="card-text">{{$off->contact_name}}</span><br>
                         <span class="card-text">{{$off->phone_number}}</span>
 
