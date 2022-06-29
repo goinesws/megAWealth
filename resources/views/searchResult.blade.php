@@ -28,30 +28,32 @@
     <div style="padding-right: 5%; padding-left: 5%; padding-top:1%;">
         <h4>Showing Search Results for {{ $search }}</h4>
 
-        <div style="display: flex; justify-content: center;">
-            @foreach ($estates as $estate)
-                <div class="shadow card" style="width: 16rem; margin: 10px;">
-                    <img src="{{ url('storage/estate/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
-                    <div class="card-body">
-                    <h5 class="card-title">${{$estate->price}}</h5>
-                    <span class="card-text">{{$estate->location}}</span><br>
-                    <span class="btn btn-info btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->building_type}}</span><br>
+        @if(count($estates) == 0)
+            <h4>No results found for {{ $search }}</h4>
+        @else
+            <div style="display: flex; justify-content: center;">
+                @foreach ($estates as $estate)
+                    <div class="shadow card" style="width: 16rem; margin: 10px;">
+                        <img src="{{ url('storage/estate/'.$estate->image_link) }}" class="card-img-top" alt="..." style=" height: 150px;">
+                        <div class="card-body">
+                        <h5 class="card-title">${{$estate->price}}</h5>
+                        <span class="card-text">{{$estate->location}}</span><br>
+                        <span class="btn btn-info btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->building_type}}</span><br>
 
 
-                    <div style="display:flex; justify-content: space-around; margin-top: 10px;">
-                        @if($estate->sales_type=='Rent')
-                            <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Rent</a>
-                        @elseif ($estate->sales_type=='Sale')
-                            <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Sale</a>
-                        @endif
+                        <div style="display:flex; justify-content: space-around; margin-top: 10px;">
+                            @if($estate->sales_type=='Rent')
+                                <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Rent</a>
+                            @elseif ($estate->sales_type=='Sale')
+                                <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Sale</a>
+                            @endif
 
+                        </div>
                     </div>
-                </div>
-                </div>
-            @endforeach
-
-        </div>
-
+                    </div>
+                @endforeach
+            </div>
+        @endif
         <div class="d-flex" style="justify-content: center">
             {{ $estates->links() }}
         </div>
