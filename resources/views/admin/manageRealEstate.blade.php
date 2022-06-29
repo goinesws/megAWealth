@@ -43,7 +43,7 @@
                     <a href="/updateRealEstate/{{ $estate->estate_id }}" class="btn btn-primary">Update</a>
                     <a href="/deleteRealEstate/{{ $estate->estate_id }}" class="btn btn-danger">Delete</a>
                     @if ($estate->status == 'Cart')
-                        <a href="#" class="btn btn-success">Finish</a>
+                        <a href="/updateRealEstateCartStatus/{{ $estate->estate_id }}" class="btn btn-success">Finish</a>
                     @endif
                 </div>
             </div>

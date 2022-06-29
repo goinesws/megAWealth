@@ -126,6 +126,15 @@ class EstateController extends Controller
         return redirect()->route('manageEstate')->with('message', 'Estate updated successfully');
     }
 
+    public function changeCartStatus(Request $request, $id)
+    {
+
+        $estate = Estate::where('estate_id', $id)->first();
+        $estate->status = "Transaction Complete";
+        $estate->update();
+        return redirect()->route('manageEstate')->with('message', 'Transaction Completed for '.$estate->building_type." at ".$estate->location);
+    }
+
     public function deleteEstate($id)
     {
         $estate = Estate::where('estate_id', $id)->first();

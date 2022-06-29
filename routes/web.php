@@ -79,6 +79,7 @@ Route::middleware(['admin'])->group(function () {
 
     Route::get('/updateRealEstate/{id}', [EstateController::class, 'index_updateEstate'])->name('index_updateEstate');
     Route::post('/updateRealEstate/{id}', [EstateController::class, 'updateEstate'])->name('updateEstate_form');
+    Route::get('/updateRealEstateCartStatus/{id}', [EstateController::class, 'changeCartStatus'])->name('updateEstate_cartStatus');
 
     Route::get('/deleteRealEstate/{id}', [EstateController::class, 'deleteEstate'])->name('deleteEstate');
 });
