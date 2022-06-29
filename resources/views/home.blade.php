@@ -81,8 +81,8 @@
             <img src="{{ url('storage/assets/thumbnail.jpg') }}" class="card-img" alt="..." height="400">
             <div class="card-img-overlay">
                 <h5 class="fs-1 text-center" style="margin-top: 3rem">Find Your Future Home</h5>
-                <form class="d-flex" style="margin-top: 7rem">
-                    <input class="form-control me-2" type="search" placeholder="Enter a City, Property Type, Buy or Rent..." aria-label="Search">
+                <form class="d-flex" style="margin-top: 7rem" action="{{ route('search') }}" method="get">
+                    <input class="form-control me-2" type="text" placeholder="Enter a City, Property Type, Buy or Rent..." aria-label="Search" name="search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>

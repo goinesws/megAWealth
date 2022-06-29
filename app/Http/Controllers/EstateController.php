@@ -144,4 +144,53 @@ class EstateController extends Controller
         return redirect()->route('manageEstate')->with('message', 'Estate deleted successfully');
 
     }
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'search' => 'required',
+        ]);
+
+        $search = strtoupper($request->search);
+
+        if($search == 'SALE'){
+            $estates = Estate::where([
+                ['sales_type', '=', 'Sale'],
+                ['status', '=', 'Open']
+            ])->paginate(4);
+        }
+
+        else if($search == 'RENT'){
+            $estates = Estate::where([
+                ['sales_type', '=', 'Rent'],
+                ['status', '=', 'Open']
+            ])->paginate(4);
+        }
+
+        else if($search == 'HOUSE'){
+            $estates = Estate::where([
+                ['building_type', '=', 'House'],
+                ['status', '=', 'Open']
+            ])->paginate(4);
+        }
+
+        else if($search == 'APARTMENT'){
+            $estates = Estate::where([
+                ['building_type', '=', 'Apartment'],
+                ['status', '=', 'Open']
+            ])->paginate(4);
+        }
+
+        else{
+            $estates = Estate::where([
+                ['location', 'like', '%'.$search.'%'],
+                ['status', '=', 'Open']
+            ])->paginate(4);
+        }
+
+        return view('searchResult', [
+            'estates' => $estates,
+            'search' => $search
+        ]);
+    }
 }

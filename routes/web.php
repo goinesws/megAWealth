@@ -40,6 +40,8 @@ Route::post('/login', [UserController::class, 'login'])->name('login_form');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+Route::get('/searchResult', [EstateController::class, 'search'])->name('search');
+
 
 
 
