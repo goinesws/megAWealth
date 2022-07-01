@@ -153,7 +153,7 @@ class EstateController extends Controller
 
         $search = strtoupper($request->search);
 
-        if($search == 'SALE'){
+        if($search == 'SALE' || $search == 'BUY'){
             $estates = Estate::where([
                 ['sales_type', '=', 'Sale'],
                 ['status', '=', 'Open']

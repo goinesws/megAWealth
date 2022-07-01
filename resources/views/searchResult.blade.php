@@ -45,7 +45,7 @@
                             @if($estate->sales_type=='Rent')
                                 <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Rent</a>
                             @elseif ($estate->sales_type=='Sale')
-                                <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Sale</a>
+                                <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Buy</a>
                             @endif
 
                         </div>
