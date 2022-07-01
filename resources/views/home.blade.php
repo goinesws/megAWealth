@@ -77,7 +77,7 @@
     @endif
 
     <div class="container-fluid" style="padding-right: 7%; padding-left: 7%; padding-top:1%;">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white" style="border: 0;">
             <img src="{{ url('storage/assets/thumbnail.jpg') }}" class="card-img" alt="..." height="400">
             <div class="card-img-overlay">
                 <h5 class="fs-1 text-center" style="margin-top: 3rem">Find Your Future Home</h5>
