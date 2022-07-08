@@ -32,7 +32,7 @@ Route::get('/', function () {
 Route::get('/home', [Controller::class, 'homepage'])->name('homepage');
 
 
-Route::get('/register', [UserController::class, 'index_register']);
+Route::get('/register', [UserController::class, 'index_register'])->name('index_register');
 Route::post('/register', [UserController::class, 'register'])->name('register_form');
 
 Route::get('/login', [UserController::class, 'index_login'])->name('index_login');

@@ -23,6 +23,9 @@
             font-size: 15px;
             margin: 10px;
         }
+        .active{
+            color: lightskyblue;
+        }
     </style>
 </head>
 <body>
@@ -34,11 +37,11 @@
         </div>
 
         <div class="navbar-items" style="padding: 10px; margin-top: 7px;">
-            <a class="navbar-content" href="/home">Home</a>
-            <a class= "navbar-content" href="/aboutUs">About Us</a>
-            <a class= "navbar-content" href="/buy">Buy</a>
-            <a class= "navbar-content" href="/rent">Rent</a>
-            <a class= "navbar-content" href="/cart">Cart</a>
+            <a class="navbar-content {{ Route::currentRouteNamed('homepage') ? 'active' : '' }}" href="/home">Home</a>
+            <a class= "navbar-content {{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}" href="/aboutUs">About Us</a>
+            <a class= "navbar-content {{ Route::currentRouteNamed('buy') ? 'active' : '' }}" href="/buy">Buy</a>
+            <a class= "navbar-content {{ Route::currentRouteNamed('rent') ? 'active' : '' }}" href="/rent">Rent</a>
+            <a class= "navbar-content {{ Route::currentRouteNamed('cart_index') ? 'active' : '' }}" href="/cart">Cart</a>
             <a class= "navbar-content" href="/logout">Logout</a>
         </div>
     </div>

@@ -17,11 +17,14 @@
 
     <title>Register</title>
     <style>
-        a{
+        .navbar-content{
             text-decoration: none;
             color:lightgray;
             font-size: 15px;
             margin: 10px;
+        }
+        .active{
+            color: lightskyblue;
         }
     </style>
 </head>
@@ -34,9 +37,9 @@
         </div>
 
         <div class="navbar-items" style="padding: 10px; margin-top: 7px;">
-            <a href="/home">Home</a>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <a class= "navbar-content" href="/home">Home</a>
+            <a class= "navbar-content" href="/login">Login</a>
+            <a class= "navbar-content active" href="/register">Register</a>
         </div>
     </div>
 

@@ -15,11 +15,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <style>
-        a{
+        .navbar-content{
             text-decoration: none;
             color:lightgray;
             font-size: 15px;
             margin: 10px;
+        }
+        .active{
+            color: lightskyblue;
         }
     </style>
     <title>Login</title>
@@ -33,9 +36,9 @@
         </div>
 
         <div class="navbar-items" style="padding: 10px; margin-top: 7px;">
-            <a href="/home">Home</a>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <a class= "navbar-content" href="/home">Home</a>
+            <a class= "navbar-content active" href="/login">Login</a>
+            <a class= "navbar-content" href="/register">Register</a>
         </div>
     </div>
 

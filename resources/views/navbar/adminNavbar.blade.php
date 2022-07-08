@@ -23,6 +23,9 @@
             font-size: 15px;
             margin: 10px;
         }
+        .active{
+            color: lightskyblue;
+        }
     </style>
 </head>
 <body>
@@ -34,9 +37,9 @@
         </div>
 
         <div class="navbar-items" style="padding: 10px; margin-top: 7px;">
-            <a class= "navbar-content" href="/home">Home</a>
-            <a class= "navbar-content" href="/manageCompany">Manage Company</a>
-            <a class= "navbar-content" href="/manageRealEstates">Manage Real Estates</a>
+            <a class= "navbar-content {{ Route::currentRouteNamed('homepage') ? 'active' : '' }}" href="/home">Home</a>
+            <a class= "navbar-content {{ Route::currentRouteNamed('manageCompany') ? 'active' : '' }}" href="/manageCompany">Manage Company</a>
+            <a class= "navbar-content {{ Route::currentRouteNamed('manageEstate') ? 'active' : '' }}" href="/manageRealEstates">Manage Real Estates</a>
             <a class= "navbar-content" href="/logout">Logout</a>
         </div>
     </div>
