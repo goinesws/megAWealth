@@ -17,7 +17,7 @@
 
     <title>Register</title>
     <style>
-        a{
+        .navbar-content{
             text-decoration: none;
             color:lightgray;
             font-size: 15px;
@@ -34,12 +34,12 @@
         </div>
 
         <div class="navbar-items" style="padding: 10px; margin-top: 7px;">
-            <a href="/home">Home</a>
-            <a href="/aboutUs">About Us</a>
-            <a href="/buy">Buy</a>
-            <a href="/rent">Rent</a>
-            <a href="/cart">Cart</a>
-            <a href="/logout">Logout</a>
+            <a class="navbar-content" href="/home">Home</a>
+            <a class= "navbar-content" href="/aboutUs">About Us</a>
+            <a class= "navbar-content" href="/buy">Buy</a>
+            <a class= "navbar-content" href="/rent">Rent</a>
+            <a class= "navbar-content" href="/cart">Cart</a>
+            <a class= "navbar-content" href="/logout">Logout</a>
         </div>
     </div>
 
