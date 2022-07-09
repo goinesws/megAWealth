@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estate;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
@@ -129,9 +130,11 @@ class EstateController extends Controller
     public function changeCartStatus(Request $request, $id)
     {
 
+
         $estate = Estate::where('estate_id', $id)->first();
         $estate->status = "Transaction Complete";
         $estate->update();
+        Cart::where('user_id', $estate->cart->user_id)->delete();
         return redirect()->route('manageEstate')->with('message', 'Transaction Completed for '.$estate->building_type." at ".$estate->location);
     }
 

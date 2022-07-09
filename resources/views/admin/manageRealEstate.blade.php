@@ -11,7 +11,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title></title>
+    <title>MEGAWEALTH</title>
 </head>
 <body>
     @include('navbar.adminNavbar')
@@ -39,7 +39,7 @@
                 <span class="btn btn-success btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->status}}</span><br>
 
 
-                <div style="display:flex; justify-content: center; margin-top: 10px;">
+                <div style="display:flex; justify-content: space-around; margin-top: 10px;">
                     <a href="/updateRealEstate/{{ $estate->estate_id }}" class="btn btn-primary">Update</a>
                     <a href="/deleteRealEstate/{{ $estate->estate_id }}" class="btn btn-danger">Delete</a>
                     @if ($estate->status == 'Cart')
