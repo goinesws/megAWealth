@@ -17,3 +17,4 @@ use App\Http\Controllers\apiController;
 
 Route::post('register', [apiController::class, 'register']);
 Route::post('login', [apiController::class, 'login']);
+Route::post('get-transaction-data', [apiController::class, 'getTransactionData'])->middleware('auth:api');

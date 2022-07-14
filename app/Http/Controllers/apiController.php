@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UsageLog;
 use App\Models\User;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -57,6 +57,20 @@ class apiController extends Controller
         return response()->json([
             'status'=>'Login Success',
             'token' => $request->user()->createToken('API')->accessToken
+        ]);
+    }
+
+    public function getTransactionData(Request $request){
+        $request->validate([
+            'email' => 'required|email'
+        ],[
+            'email.required'=>'Invalid Email',
+        ]);
+        $dataUser = User::where('email', '=', $request->input('email'))->first();
+        $data = Cart::query()->select('*')->where('user_id', '=', $dataUser->user_id)->get();
+        return response()->json([
+            'data'=> $data, 'user_id' => $dataUser->user_id
+            // 'user_id' => $user
         ]);
     }
 }
