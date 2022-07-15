@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Models\Cart;
+use App\Models\Transaction;
 
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,5 +21,10 @@ class Estate extends Model
     public function cart()
     {
         return $this->hasOne(Cart::class, 'estate_id', 'estate_id');
+    }
+
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class, 'estate_id', 'estate_id');
     }
 }

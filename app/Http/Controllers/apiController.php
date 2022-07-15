@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Query\JoinClause;
 
 class apiController extends Controller
 {
@@ -66,11 +68,16 @@ class apiController extends Controller
         ],[
             'email.required'=>'Invalid Email',
         ]);
+        // Dapat data user yang bersangkutan dengan email ini
         $dataUser = User::where('email', '=', $request->input('email'))->first();
-        $data = Cart::query()->select('*')->where('user_id', '=', $dataUser->user_id)->get();
+        $dataTrs = DB::table('transactions')
+                    ->join('users', 'transactions.user_id', '=', 'users.user_id')
+                    ->join('estates', 'transactions.estate_id', '=', 'estates.estate_id')
+                    ->select('transactions.transaction_date', 'transactions.transaction_id', 'transactions.estate_id', 'estates.sales_type', 'estates.building_type', 'estates.price', 'estates.location', 'estates.image_link')
+                    ->where('transactions.user_id', '=', $dataUser->user_id)
+                    ->get();
         return response()->json([
-            'data'=> $data, 'user_id' => $dataUser->user_id
-            // 'user_id' => $user
+            'data'=> $dataTrs, 'user_id' => $dataUser->user_id
         ]);
     }
 }

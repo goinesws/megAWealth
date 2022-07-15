@@ -60,7 +60,7 @@ class EstateSeeder extends Seeder
             'estate_id'=> Str::uuid(),
             'sales_type'=> 'Sale',
             'building_type'=> 'House',
-            'status'=> 'Cart',
+            'status'=> 'Open',
             'price'=> '2300000',
             'location'=>'442 Hamilton Drive, WA',
             'image_link'=>'house_2.jpg'
@@ -80,7 +80,7 @@ class EstateSeeder extends Seeder
             'estate_id'=> Str::uuid(),
             'sales_type'=> 'Rent',
             'building_type'=> 'House',
-            'status'=> 'Transaction Complete',
+            'status'=> 'Open',
             'price'=> '120000',
             'location'=>'4803 Wellesley Street, ON',
             'image_link'=>'house_4.jpg'
@@ -100,7 +100,7 @@ class EstateSeeder extends Seeder
             'estate_id'=> Str::uuid(),
             'sales_type'=> 'Rent',
             'building_type'=> 'Apartment',
-            'status'=> 'Cart',
+            'status'=> 'Open',
             'price'=> '45000',
             'location'=>'2456 Ella Street, CA',
             'image_link'=>'apartment_5.jpg'
@@ -112,7 +112,7 @@ class EstateSeeder extends Seeder
             'building_type'=> 'Apartment',
             'status'=> 'Open',
             'price'=> '50000',
-            'location'=>'8028 Ella Street, CA',
+            'location'=>'8028 Fella Street, CA',
             'image_link'=>'apartment_6.jpg'
         ]);
 
