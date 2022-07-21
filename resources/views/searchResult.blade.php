@@ -53,7 +53,7 @@
                                     <a href="/updateRealEstateCartStatus/{{ $estate->estate_id }}" class="btn btn-success">Finish</a>
                                 @endif
                             </div>
-                        @elseif(Gate::allows('isMember'))
+                        @else
                             <span class="btn btn-info btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->building_type}}</span><br>
 
                             <div style="display:flex; justify-content: space-around; margin-top: 10px;">
