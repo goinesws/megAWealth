@@ -48,13 +48,14 @@ class CartController extends Controller
             Estate::where('estate_id', $cart->estate_id)->update([
                 'status' => 'Transaction Complete'
             ]);
+            $tr = new Transaction();
+            $tr->transaction_id = Str::uuid();
+            $tr->user_id = $cart->user_id;
+            $tr->estate_id = $cart->estate_id;
+            $tr->transaction_date = date('Y-m-d');
+            $tr->save();
         }
-        $tr = new Transaction();
-        $tr->transaction_id = Str::uuid();
-        $tr->user_id = $cart->user_id;
-        $tr->estate_id = $cart->estate_id;
-        $tr->transaction_date = date('Y-m-d');
-        $tr->save();
+
         Cart::where('user_id', Auth::id())->delete();
         return redirect('/home')->with('message', 'Checkout Successful');
     }

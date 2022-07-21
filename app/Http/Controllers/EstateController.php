@@ -150,8 +150,12 @@ class EstateController extends Controller
     public function deleteEstate($id)
     {
         $estate = Estate::where('estate_id', $id)->first();
+        $tr = Transaction::where('estate_id', $estate->estate_id)->first();
         $destinationPath = 'storage/estate/';
         File::delete($destinationPath.'/'.$estate->image_link);
+        if($tr){
+            $tr->delete();
+        }
         $estate->delete();
         return redirect()->route('manageEstate')->with('message', 'Estate deleted successfully');
 
