@@ -200,7 +200,9 @@ class EstateController extends Controller
             ])->paginate(4);
         }
 
+
         return view('searchResult', [
+            'searchinput' => $request->search,
             'estates' => $estates,
             'search' => $search
         ]);
