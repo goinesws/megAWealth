@@ -86,7 +86,7 @@ class EstateController extends Controller
         $estate->location = $request->location;
         $estate->image_link = $imageName;
         $estate->save();
-        return redirect()->route('manageEstate');
+        return redirect()->route('manageEstate')->with('message', 'Estate added successfully');
     }
 
     public function index_updateEstate($id)

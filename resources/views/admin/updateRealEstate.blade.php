@@ -28,7 +28,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Sales Type</span>
                         <select class="form-select" aria-label="Default select example" name="sales_type">
-                            <option selected>Choose the type of sales</option>
+                            <option value="">Choose the type of sales</option>
                             <option value="1" {{ $estate->sales_type == 'Sale' ? 'selected' : '' }}>Sale</option>
                             <option value="2" {{ $estate->sales_type == 'Rent' ? 'selected' : '' }}>Rent</option>
                         </select>
@@ -37,7 +37,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Building Type</span>
                         <select class="form-select" aria-label="Default select example" name="building_type">
-                            <option selected>Choose the Building Type</option>
+                            <option value="">Choose the Building Type</option>
                             <option value="1" {{ $estate->building_type == 'Apartment' ? 'selected' : '' }}>Apartment</option>
                             <option value="2" {{ $estate->building_type == 'House' ? 'selected' : '' }}>House</option>
                         </select>

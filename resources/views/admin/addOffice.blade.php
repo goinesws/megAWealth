@@ -18,7 +18,7 @@
     @include('navbar.adminNavbar')
 
     {{-- form --}}
-    <div style="border-style: solid; border-width: 1.5px; border-color:#106cfc; border-radius: 5px; height: 550px; width: 700px; margin: auto; margin-top: 5%; padding: 3%; margin-bottom: 5%;">
+    <div style="border-style: solid; border-width: 1.5px; border-color:#106cfc; border-radius: 5px; height: 650px; width: 700px; margin: auto; margin-top: 5%; padding: 3%; margin-bottom: 5%;">
         <form actions="{{ route('addOffice_form') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">

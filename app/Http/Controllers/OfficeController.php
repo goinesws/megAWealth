@@ -54,7 +54,7 @@ class OfficeController extends Controller
         $office->phone_number = $request->phone_number;
         $office->image_link = $imageName;
         $office->save();
-        return redirect()->route('manageCompany');
+        return redirect()->route('manageCompany')->with('message', 'Office added successfully');
     }
 
     public function index_updateOffice($id)
