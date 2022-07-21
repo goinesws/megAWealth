@@ -19,7 +19,7 @@
     <div style="padding-right: 5%; padding-left: 5%; padding-top:1%;">
         <h4>Your Cart</h4>
 
-        <div style="display: flex; justify-content: center; margin-top: 50px;">
+        <div style="display: flex; justify-content: center;">
             @if(count($carts)==0)
                 <h4>No Data in Cart Yet</h4>
             @else

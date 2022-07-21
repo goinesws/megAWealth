@@ -29,7 +29,7 @@
         <h4>Showing Search Results for {{ $search }}</h4>
 
         @if(count($estates) == 0)
-            <h4 style="display: flex; justify-content: center; margin-top:50px;">No results found for {{ $search }}</h4>
+            <h4>No results found for {{ $search }}</h4>
         @else
             <div style="display: flex; justify-content: center;">
                 @foreach ($estates as $estate)
@@ -38,34 +38,17 @@
                         <div class="card-body">
                         <h5 class="card-title">${{$estate->price}}</h5>
                         <span class="card-text">{{$estate->location}}</span><br>
-                        @if(Gate::allows('isAdmin'))
-                            <span class="btn btn-info btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->building_type}}</span>
-                            @if ($estate->status == 'Open'||$estate->status == 'Cart')
-                                <span class="btn btn-primary btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->sales_type}}</span>
+                        <span class="btn btn-info btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->building_type}}</span><br>
+
+
+                        <div style="display:flex; justify-content: space-around; margin-top: 10px;">
+                            @if($estate->sales_type=='Rent')
+                                <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Rent</a>
+                            @elseif ($estate->sales_type=='Sale')
+                                <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Buy</a>
                             @endif
-                            <span class="btn btn-success btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->status}}</span><br>
 
-
-                            <div style="display:flex; justify-content: space-around; margin-top: 10px;">
-                                <a href="/updateRealEstate/{{ $estate->estate_id }}" class="btn btn-primary">Update</a>
-                                <a href="/deleteRealEstate/{{ $estate->estate_id }}" class="btn btn-danger">Delete</a>
-                                @if ($estate->status == 'Cart')
-                                    <a href="/updateRealEstateCartStatus/{{ $estate->estate_id }}" class="btn btn-success">Finish</a>
-                                @endif
-                            </div>
-                        @elseif(Gate::allows('isMember'))
-                            <span class="btn btn-info btn-sm text-light" style="margin-top:10px; --bs-btn-font-size: .75rem; --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .3rem;">{{$estate->building_type}}</span><br>
-
-                            <div style="display:flex; justify-content: space-around; margin-top: 10px;">
-                                @if($estate->sales_type=='Rent')
-                                    <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Rent</a>
-                                @elseif ($estate->sales_type=='Sale')
-                                    <a href="/addCart/{{ $estate->estate_id }}" class="btn btn-primary">Buy</a>
-                                @endif
-
-                            </div>
-                        @endif
-
+                        </div>
                     </div>
                     </div>
                 @endforeach
