@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Office;
+use App\Models\Estate;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -30,6 +32,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'satu@email.com',
             'password' => bcrypt('12341234'),
             'role' => 'member',
+        ]);
+
+        $this->call([
+            EstateSeeder::class,
+            OfficeSeeder::class,
         ]);
     }
 }
