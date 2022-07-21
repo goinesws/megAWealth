@@ -7,6 +7,7 @@ use App\Models\Transaction;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Estate extends Model
 {
@@ -27,4 +28,5 @@ class Estate extends Model
     {
         return $this->hasOne(Transaction::class, 'estate_id', 'estate_id');
     }
+
 }

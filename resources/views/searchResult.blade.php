@@ -26,10 +26,10 @@
     @endguest
 
     <div style="padding-right: 5%; padding-left: 5%; padding-top:1%;">
-        <h4>Showing Search Results for {{ $search }}</h4>
+        <h4>Showing Search Results for {{ $searchinput }}</h4>
 
         @if(count($estates) == 0)
-            <h4 style="display: flex; justify-content: center; margin-top:50px;">No results found for {{ $search }}</h4>
+            <h4 style="display: flex; justify-content: center; margin-top:50px;">No results found for {{ $searchinput }}</h4>
         @else
             <div style="display: flex; justify-content: center;">
                 @foreach ($estates as $estate)
@@ -72,7 +72,8 @@
             </div>
         @endif
         <div class="d-flex" style="justify-content: center">
-            {{ $estates->links() }}
+            {{-- {{ $estates->links() }} --}}
+            {{ $estates->appends(request()->except('page'))->links() }}
         </div>
     </div>
 
