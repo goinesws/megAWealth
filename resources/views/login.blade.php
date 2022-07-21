@@ -73,7 +73,7 @@
               </div>
             @endif
 
-            <button type="submit" class="btn btn-primary position-absolute start-50"> Login </button>
+            <button type="submit" class="btn btn-primary position-absolute" style="margin-left: 260px;"> Login </button>
           </form>
 
 
